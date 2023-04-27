@@ -160,16 +160,16 @@ namespace DepresionSafe_API.Controllers
         private bool SendEmail(string Destinatario, string token)
         {
             string urlDomain = "http://localhost:/";
-            string EmailOrigen = "gooddriving2022@gmail.com";
-            string Password = "hjfwozrcmigsmuzi";
-            string url = urlDomain + "Login/Reestablecer?token=" + token;
+            string EmailOrigen = "depressionsafe23@gmail.com";
+            string Password = "dlvwplgtawwfuttv";
+            string url = urlDomain + "?token=" + token;
 
             //NOMBRE MENSAJE
-            string Nombre = "REPOSITORIO INSTITUCIONAL DE CODIGO ABIERTO";
+            string Nombre = "DEPRESION SAFE";
 
             string Cuerpo = "" +
                  "<div>" +
-                    "<a class=\"btn btn-info\" href=\"" + url + "\">Click Aqui</a>" +
+                    "<a href=\"" + url + "\">Click Aqui Para reestablecer</a>" +
                  "</div>";
             string Asunto = "Reestablecer Contraseña";
 
