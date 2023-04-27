@@ -76,10 +76,12 @@ public partial class DepresionSafeContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("password");
             entity.Property(e => e.Telefono).HasColumnName("telefono");
+            entity.Property(e => e.Token)
+                .IsUnicode(false)
+                .HasColumnName("token");
 
             entity.HasOne(d => d.IdRolUsuarioNavigation).WithMany(p => p.Usuarios)
                 .HasForeignKey(d => d.IdRolUsuario)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Usuario__idRolUs__286302EC");
 
             entity.HasOne(d => d.IdSubscripcionNavigation).WithMany(p => p.Usuarios)

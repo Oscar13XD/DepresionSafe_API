@@ -19,9 +19,11 @@ public partial class Usuario
 
     public int? IdSubscripcion { get; set; }
 
-    public int IdRolUsuario { get; set; }
+    public int? IdRolUsuario { get; set; }
 
-    public virtual RolUsuario IdRolUsuarioNavigation { get; set; } = null!;
+    public string? Token { get; set; }
+
+    public virtual RolUsuario? IdRolUsuarioNavigation { get; set; }
 
     public virtual Subscripcion? IdSubscripcionNavigation { get; set; }
 }

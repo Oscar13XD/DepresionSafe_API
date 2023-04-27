@@ -14,31 +14,31 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
+builder.Services.AddSwaggerGen(opt =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "API DEPRESIONSAFE", Version = "v1" });
-    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+    opt.SwaggerDoc("v1", new OpenApiInfo { Title = "MyAPI", Version = "v1" });
+    opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Name = "Authorizacion",
-        Type = SecuritySchemeType.ApiKey,
-        Scheme = "Bearer",
-        BearerFormat = "JWT",
         In = ParameterLocation.Header,
-        Description = "Escriba bearer, deje un espacio y pegue el token"
-
+        Description = "Please enter token",
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        BearerFormat = "JWT",
+        Scheme = "bearer"
     });
-    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+
+    opt.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
-                new OpenApiSecurityScheme
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
                 {
-                    Reference = new OpenApiReference
-                    {
-                        Type = ReferenceType.SecurityScheme,
-                        Id = "Bearer"
-                    }
-                },
-                new string[] {}
+                    Type=ReferenceType.SecurityScheme,
+                    Id="Bearer"
+                }
+            },
+            new string[]{}
         }
     });
 });
