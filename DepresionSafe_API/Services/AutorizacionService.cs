@@ -67,7 +67,8 @@ namespace DepresionSafe_API.Services
             {
                 Token = tokenCreado,
                 Resultado = true,
-                Mensaje = "OK"
+                Mensaje = "OK",
+                Rol = usuario.IdRolUsuarioNavigation.Descripcion
             };
         }
 

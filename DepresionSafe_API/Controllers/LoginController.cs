@@ -159,10 +159,10 @@ namespace DepresionSafe_API.Controllers
         //METODO PARA ENVIAR CORREOS
         private bool SendEmail(string Destinatario, string token)
         {
-            string urlDomain = "http://localhost:/";
+            string urlDomain = "http://localhost:5244/";
             string EmailOrigen = "depressionsafe23@gmail.com";
             string Password = "dlvwplgtawwfuttv";
-            string url = urlDomain + "?token=" + token;
+            string url = urlDomain + "IniciarSesion/Reestablecer?token=" + token;
 
             //NOMBRE MENSAJE
             string Nombre = "DEPRESION SAFE";
